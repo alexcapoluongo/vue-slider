@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Slider JS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="root">
+        <div class="container">
+            <div class="items">
+                
+                <div v-for= "item in itemList" class="item" :class="{'active': activeElem}">
+                    <img :src="item.image" alt="">
+                    <div class="text">
+                        <h3> {{ item.name }} </h3>
+                        <p> {{ item.text }} </p>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="thumbs">
+                
+                <div v-for= "item in itemList" class="thumb">
+                    <img :src= "item.image" alt="">
+                </div>
+               
+                <div @click="previousImg" class="prev"></div>
+                <div @click="nextImg" class="next"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
