@@ -15,7 +15,7 @@
         <div class="container">
             <div class="items">
                 
-                <div v-for= "item in itemList" class="item" :class="{'active': activeElem}">
+                <div v-for= "(item, index) in itemList" class="item" :class="{active: activeIndex === index}">
                     <img :src="item.image" alt="">
                     <div class="text">
                         <h3> {{ item.name }} </h3>
@@ -26,7 +26,7 @@
             </div>
             <div class="thumbs">
                 
-                <div v-for= "item in itemList" class="thumb">
+                <div v-for= "(item, index) in itemList" class="thumb" :class= "{active: activeIndex === index}">
                     <img :src= "item.image" alt="">
                 </div>
                

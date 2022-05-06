@@ -31,29 +31,34 @@ const app = new Vue (
                     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
                 }       
             ],
-
-            activeElem: true,
-            currentSlide: 0,
+            activeIndex: 0,
         },
 
         methods: {
             isActive: function() {
-                for (let i = 0; i < data.itemList.length; i++){
+                for (let i = 0; i < this.itemList.length; i++){
                     // aggiungiamo la classe active alla prima slide 
-                    if ((i == 0) ? this.activeElem = true : this.activeElem = false);
-                }
-                
+                    // if ((i == 0) ? this.activeElem = true : this.activeElem = false);
+                }            
             },
 
             
             previousImg: function() {
-               
-                console.log('prev');
+                if(this.activeIndex == 0) {
+                    this.activeIndex = this.itemList.length - 1;
+                } else {
+                    this.activeIndex--;
+                }
+                
+                
             },
 
             nextImg: function() {
-               
-                console.log('next');
+                if(this.activeIndex == this.itemList.length - 1) {
+                    this.activeIndex = 0;
+                } else {
+                    this.activeIndex++;
+                }
             }
         }
     }
