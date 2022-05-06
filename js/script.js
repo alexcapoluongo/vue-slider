@@ -40,7 +40,7 @@ const app = new Vue (
             isActive: function() {
                 for (let i = 0; i < data.itemList.length; i++){
                     // aggiungiamo la classe active alla prima slide 
-                    if (i == 0 ? this.activeElem = true : this.activeElem = false);
+                    if ((i == 0) ? this.activeElem = true : this.activeElem = false);
                 }
                 
             },
