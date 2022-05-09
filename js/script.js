@@ -59,6 +59,12 @@ const app = new Vue (
             showImage : function(index) {
                 this.activeIndex = index;
             }    
+        },
+        //tra le funzioni create con created richiamo la funzione e ci setto un set interval
+        created() {
+            setInterval(() => {
+                this.nextImg();
+            },3000)
         }
     }
 )
