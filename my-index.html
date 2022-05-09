@@ -15,19 +15,24 @@
         <div class="container">
             <div class="items">
                 
-                <div v-for= "(item, index) in itemList" class="item" :class="{active: activeIndex === index}">
+                <div v-for= "(item, index) in itemList" 
+                class="item" 
+                :class="{active: activeIndex === index}">
                     <img :src="item.image" alt="">
                     <div class="text">
                         <h3> {{ item.name }} </h3>
                         <p> {{ item.text }} </p>
                     </div>
                 </div>
-               
+
             </div>
             <div class="thumbs">
                 
-                <div v-for= "(item, index) in itemList" class="thumb" :class= "{active: activeIndex === index}">
-                    <img :src= "item.image" alt="">
+                <div @click="showImage(index)" 
+                v-for= "(item, index) in itemList" 
+                class="thumb" 
+                :class = "{active: activeIndex === index}"> <!-- index ? active === "active" : "" -->
+                    <img :src= "item.image" :alt="item.title">
                 </div>
                
                 <div @click="previousImg" class="prev"></div>

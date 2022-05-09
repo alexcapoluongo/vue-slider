@@ -31,26 +31,21 @@ const app = new Vue (
                     text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
                 }       
             ],
+
             activeIndex: 0,
+
         },
 
         methods: {
-            isActive: function() {
-                for (let i = 0; i < this.itemList.length; i++){
-                    // aggiungiamo la classe active alla prima slide 
-                    // if ((i == 0) ? this.activeElem = true : this.activeElem = false);
-                }            
-            },
-
+          
             
             previousImg: function() {
+
                 if(this.activeIndex == 0) {
                     this.activeIndex = this.itemList.length - 1;
                 } else {
                     this.activeIndex--;
-                }
-                
-                
+                }              
             },
 
             nextImg: function() {
@@ -59,8 +54,17 @@ const app = new Vue (
                 } else {
                     this.activeIndex++;
                 }
-            }
+            },
+
+            showImage : function(index) {
+                this.activeIndex = index;
+            }    
         }
     }
-    
 )
+
+// 1- al click su una thumb, visualizzare in grande l'immagine corrispondente
+
+// 2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+
+// 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
