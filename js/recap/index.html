@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Shopping Cart</title>
+    </head>
+    <body>
+
+        <div class="card" id="app">
+
+            <!-- totale carrello -->
+            <div class="total">Totale: € {{ totalPrice }}.00</div>
+            <div class="background">
+                <!-- immagine del colore selezionato -->
+                <img :src="'img/' + activeColor + '.png'">
+            </div>
+
+            <div class="wrapper">
+                <!-- nome completo del prodotto -->
+                <h1 class="title">{{ fullName }}</h1>
+
+                <!-- prezzo finale del prodotto, compreso maggiorazione -->
+                <span class="price">€ {{ fullPrice }}.00</span>
+
+                <!-- colori disponibili, al click cambia l'immagine -->
+                <h3>Colore:</h3>
+                <div class="colors">
+                    <span v-for="(color, index) in product.colors" :class="color == activeColor ? 'selected' : ''" :style="{ 'background-color': color }" @click="changeColor(color)"></span>
+                </div>
+
+                <!-- opzioni disponibili, al click cambia il prezzo -->
+                <h3>Memoria:</h3>
+                <div class="sizes">
+                    <div v-for="(option, index) in product.options">
+                        <input :id="option.text" type="radio" name="size" :checked="index == activeOption" @click="changeOption(index)">
+                        <label :for="option.text">{{ option.text }}</label>
+                    </div>
+                </div>
+
+                <!-- aggiunge il prodotto al carrello -->
+                <div class="purchase" @click="quantity++">Aggiungi al carrello ({{ quantity }})</div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

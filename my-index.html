@@ -17,7 +17,9 @@
                 
                 <div v-for= "(item, index) in itemList" 
                 class="item" 
-                :class="{active: activeIndex === index}">
+                :class="{active: activeIndex === index}"
+                @mouseover="stopTimer"
+                @mouseleave="startTimer">
                     <img :src="item.image" alt="">
                     <div class="text">
                         <h3> {{ item.name }} </h3>

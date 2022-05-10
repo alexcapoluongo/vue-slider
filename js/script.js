@@ -33,7 +33,7 @@ const app = new Vue (
             ],
 
             activeIndex: 0,
-
+            timer: null
         },
 
         methods: {
@@ -58,7 +58,16 @@ const app = new Vue (
 
             showImage : function(index) {
                 this.activeIndex = index;
-            }    
+            },   
+
+            stopTimer: function() {
+                clearInterval(this.timer);
+                this.timer = null
+            },
+
+            startTimer: function() {
+
+            },
         },
         //tra le funzioni create con created richiamo la funzione e ci setto un set interval
         created() {
